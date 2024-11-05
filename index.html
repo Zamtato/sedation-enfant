@@ -207,38 +207,37 @@
             });
         }
 
-       function calculateSedation() {
-    const weight = parseFloat(document.getElementById('weight').value);
-    const duration = parseInt(document.getElementById('duration').value);
-    const drug1 = document.getElementById('drug1').value;
-    const drug2 = document.getElementById('drug2').value;
-    const dosage1 = parseFloat(document.getElementById('dosage1').value);
-    const dosage2 = parseFloat(document.getElementById('dosage2').value);
+        function calculateSedation() {
+            const weight = parseFloat(document.getElementById('weight').value);
+            const duration = parseInt(document.getElementById('duration').value);
+            const drug1 = document.getElementById('drug1').value;
+            const drug2 = document.getElementById('drug2').value;
+            const dosage1 = parseFloat(document.getElementById('dosage1').value);
+            const dosage2 = parseFloat(document.getElementById('dosage2').value);
 
-    if (isNaN(weight) || isNaN(duration) || !drug1 || !drug2 || isNaN(dosage1) || isNaN(dosage2)) {
-        alert("Veuillez remplir tous les champs avant de calculer.");
-        return;
-    }
+            if (isNaN(weight) || isNaN(duration) || !drug1 || !drug2 || isNaN(dosage1) || isNaN(dosage2)) {
+                alert("Veuillez remplir tous les champs avant de calculer.");
+                return;
+            }
 
-    const totalDose1 = dosage1 * weight * duration;
-    const totalDose2 = dosage2 * weight * duration;
+            const totalDose1 = dosage1 * weight * duration;
+            const totalDose2 = dosage2 * weight * duration;
 
-    const totalVolumeDrug1 = totalDose1 / drugDetails[drug1].concentration;
-    const totalVolumeDrug2 = totalDose2 / drugDetails[drug2].concentration;
-    const totalDrugVolume = totalVolumeDrug1 + totalVolumeDrug2;
-    const glucoseVolume = 50 - totalDrugVolume;
-    const infusionRate = 50 / duration;
+            const totalVolumeDrug1 = totalDose1 / drugDetails[drug1].concentration;
+            const totalVolumeDrug2 = totalDose2 / drugDetails[drug2].concentration;
+            const totalDrugVolume = totalVolumeDrug1 + totalVolumeDrug2;
+            const glucoseVolume = 50 - totalDrugVolume;
+            const infusionRate = 50 / duration;
 
-    document.getElementById('results').innerHTML = `
-        <p><strong>${drugDetails[drug1].name} :</strong> ${totalDose1.toFixed(2)} mg, ${totalVolumeDrug1.toFixed(2)} ml</p>
-        <p><strong>${drugDetails[drug2].name} :</strong> ${totalDose2.toFixed(2)} mg, ${totalVolumeDrug2.toFixed(2)} ml</p>
-        <p><strong>Volume de Glucose 5% à ajouter :</strong> ${glucoseVolume.toFixed(2)} ml (pour atteindre 50 ml)</p>
-        <p><strong>Vitesse de perfusion :</strong> ${infusionRate.toFixed(2)} ml/heure</p>
-    `;
-}
+            document.getElementById('results').innerHTML = `
+                <p><strong>${drugDetails[drug1].name} :</strong> ${totalDose1.toFixed(2)} mg, ${totalVolumeDrug1.toFixed(2)} ml</p>
+                <p><strong>${drugDetails[drug2].name} :</strong> ${totalDose2.toFixed(2)} mg, ${totalVolumeDrug2.toFixed(2)} ml</p>
+                <p><strong>Volume de Glucose 5% à ajouter :</strong> ${glucoseVolume.toFixed(2)} ml (pour atteindre 50 ml)</p>
+                <p><strong>Vitesse de perfusion :</strong> ${infusionRate.toFixed(2)} ml/heure</p>
+            `;
+        }
 
         updateDrugOptions();
     </script>
 </body>
 </html>
-
