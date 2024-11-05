@@ -173,11 +173,41 @@
 
     <script>
         const drugDetails = {
-            'ketamine': { name: 'Kétamine', concentration: 50, formulation: '50 mg/mL', dosages: [ { value: 2, label: '2 mg/kg/heure' }, { value: 3, label: '3 mg/kg/heure' }, { value: 4, label: '4 mg/kg/heure' } ] },
-            'propofol': { name: 'Propofol', concentration: 10, formulation: '10 mg/mL', dosages: [ { value: 1.5, label: '1.5 mg/kg/heure' }, { value: 2.5, label: '2.5 mg/kg/heure' } ] },
-            'midazolam': { name: 'Midazolam', concentration: 1, formulation: '1 mg/mL', dosages: [ { value: 0.05, label: '0.05 mg/kg/heure' }, { value: 0.1, label: '0.1 mg/kg/heure' } ] },
-            'fentanyl': { name: 'Fentanyl', concentration: 0.05, formulation: '50 µg/mL', dosages: [ { value: 0.002, label: '2 µg/kg/heure' }, { value: 0.003, label: '3 µg/kg/heure' } ] },
-            'morphine': { name: 'Morphine', concentration: 10, formulation: '10 mg/mL', dosages: [ { value: 0.01, label: '0.01 mg/kg/heure' }, { value: 0.02, label: '0.02 mg/kg/heure' } ] }
+            'ketamine': { 
+                name: 'Kétamine', 
+                concentration: 50, 
+                formulation: '50 mg/mL', 
+                ampoule: 'Ampoule de 10 mL à 50 mg/mL', 
+                dosages: [ { value: 2, label: '2 mg/kg/heure' }, { value: 3, label: '3 mg/kg/heure' }, { value: 4, label: '4 mg/kg/heure' } ] 
+            },
+            'propofol': { 
+                name: 'Propofol', 
+                concentration: 10, 
+                formulation: '10 mg/mL', 
+                ampoule: 'Flacon de 20 mL à 10 mg/mL', 
+                dosages: [ { value: 1.5, label: '1.5 mg/kg/heure' }, { value: 2.5, label: '2.5 mg/kg/heure' } ] 
+            },
+            'midazolam': { 
+                name: 'Midazolam', 
+                concentration: 1, 
+                formulation: '1 mg/mL', 
+                ampoule: 'Ampoule de 5 mL à 1 mg/mL', 
+                dosages: [ { value: 0.05, label: '0.05 mg/kg/heure' }, { value: 0.1, label: '0.1 mg/kg/heure' } ] 
+            },
+            'fentanyl': { 
+                name: 'Fentanyl', 
+                concentration: 0.05, 
+                formulation: '50 µg/mL', 
+                ampoule: 'Ampoule de 2 mL à 50 µg/mL', 
+                dosages: [ { value: 0.002, label: '2 µg/kg/heure' }, { value: 0.003, label: '3 µg/kg/heure' } ] 
+            },
+            'morphine': { 
+                name: 'Morphine', 
+                concentration: 10, 
+                formulation: '10 mg/mL', 
+                ampoule: 'Ampoule de 1 mL à 10 mg/mL', 
+                dosages: [ { value: 0.01, label: '0.01 mg/kg/heure' }, { value: 0.02, label: '0.02 mg/kg/heure' } ] 
+            }
         };
 
         function updateDrugOptions() {
@@ -235,7 +265,9 @@
                 <p><strong>Volume de Glucose 5% à ajouter :</strong> ${glucoseVolume.toFixed(2)} ml (pour atteindre 50 ml)</p>
                 <p><strong>Vitesse de perfusion :</strong> ${infusionRate.toFixed(2)} ml/heure</p>
                 <p><strong>Formulation de ${drugDetails[drug1].name} :</strong> ${drugDetails[drug1].formulation}</p>
+                <p><strong>Présentation de ${drugDetails[drug1].name} :</strong> ${drugDetails[drug1].ampoule}</p>
                 <p><strong>Formulation de ${drugDetails[drug2].name} :</strong> ${drugDetails[drug2].formulation}</p>
+                <p><strong>Présentation de ${drugDetails[drug2].name} :</strong> ${drugDetails[drug2].ampoule}</p>
             `;
         }
 
